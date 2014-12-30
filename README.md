@@ -1,7 +1,10 @@
 meteor-segment
 ==============
 
-Push events automatically to Segment.com from your Meteor app
+Push events automatically to Segment.com from your Meteor app.
+
+This package will observe your signups and IronRouter route hits, and
+effortlessly push events to your Segment account.
 
 ## Installation
 
