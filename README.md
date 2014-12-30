@@ -19,7 +19,9 @@ database with your Meteor app's production data.
 Modify the code below with your production Mongo's port, host, username, password, and database name. We're simply exporting the user id's and createdAt fields.
 
 ```
-mongoexport --port 10059 --host candidate.15.mongolayer.com -u appProd -p myPassword --db appProd --collection users --csv --fields _id,createdAt --out users.csv
+mongoexport --port 10059 --host candidate.15.mongolayer.com \
+-u appProd -p myPassword --db appProd --collection users \
+--csv --fields _id,createdAt --out users.csv
 ```
 
 ### 2. Import "Signed Up" events into Keen IO
@@ -41,7 +43,9 @@ There is probably one collection that is most important for your users to create
 Modify the code below with your production Mongo's port, host, username, password, and database name.
 
 ```
-mongoexport --port 10059 --host candidate.15.mongolayer.com -u appProd -p myPassword --db appProd --collection tweets --csv --fields userId,createdAt --out tweets.csv
+mongoexport --port 10059 --host candidate.15.mongolayer.com \
+-u appProd -p myPassword --db appProd --collection tweets \
+--csv --fields userId,createdAt --out tweets.csv
 ```
 
 ### 4. Import retention event into Keen IO
