@@ -14,7 +14,7 @@ which requires you to get a [Keen IO](https://keen.io/) database setup with your
 historical data. You can use the scripts below to quickly populate your Keen IO
 database with your Meteor app's production data.
 
-1. Export Users from Mongo
+### 1. Export Users from Mongo
 
 Modify the code below with your production Mongo's port, host, username, password, and database name. We're simply exporting the user id's and createdAt fields.
 
@@ -22,7 +22,7 @@ Modify the code below with your production Mongo's port, host, username, passwor
 mongoexport --port 10059 --host candidate.15.mongolayer.com -u appProd -p myPassword --db appProd --collection users --csv --fields _id,createdAt --out users.csv
 ```
 
-2. Import "Signed Up" events into Keen IO
+### 2. Import "Signed Up" events into Keen IO
 
 * Install the keen-cli npm package
 * Edit the CSV you created in step one — change column names:
@@ -34,7 +34,7 @@ mongoexport --port 10059 --host candidate.15.mongolayer.com -u appProd -p myPass
 keen events:add -c "Signed Up" -f users.csv --csv -p myPublicKey -w myWriteKey
 ```
 
-3. Export retention event from Mongo
+### 3. Export retention event from Mongo
 
 There is probably one collection that is most important for your users to create on a regular basis, in order to be considered an active user. Hopefully you've been recording a userId and createdAt date for the collection, otherwise you're out of luck on this step.
 
@@ -44,7 +44,7 @@ Modify the code below with your production Mongo's port, host, username, passwor
 mongoexport --port 10059 --host candidate.15.mongolayer.com -u appProd -p myPassword --db appProd --collection tweets --csv --fields userId,createdAt --out tweets.csv
 ```
 
-4. Import retention event into Keen IO
+### 4. Import retention event into Keen IO
 
 * Edit the CSV you created in step one — change column names:
   * `userId` to "user.userId"
