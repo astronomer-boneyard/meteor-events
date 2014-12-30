@@ -5,7 +5,31 @@ Push events automatically to Segment.com from your Meteor app
 
 ## Installation
 
+`meteor add usercycle:usercycle`
+
 ## Usage
+
+Add a "public.usercycle" node to your [Meteor.settings](http://docs.meteor.com/#/full/meteor_settings) JSON.
+
+```
+{
+  "public": {
+    "usercycle": {
+      "debug": true,
+      "segment": {
+        "writeKey": "xxxxxxxx"
+      },
+      "signup": {
+        "name": "Signed Up"
+      },
+      "retention": {
+        "name": "Viewed Dashboard",
+        "routes": "dashboard"
+      }
+    }
+  }
+}
+```
 
 ## Sample Scripts
 
