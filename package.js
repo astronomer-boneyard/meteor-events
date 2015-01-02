@@ -1,7 +1,7 @@
 Package.describe({
   name: 'usercycle:events',
   summary: 'Usercycle Events',
-  version: '0.0.1'
+  version: '0.0.2'
 });
 
 Package.onUse(function(api) {
@@ -10,11 +10,17 @@ Package.onUse(function(api) {
   api.use([
     'coffeescript',
     'underscore',
-    'percolatestudio:segment.io@1.1.0_1',
-    'iron:router@1.0.0'
+    'tracker',
+    'iron:router@1.0.0',
+    'meteorhacks:inject-initial@1.0.2'
     ], ['client', 'server']);
 
-  api.addFiles('usercycle.coffee');
+  api.addFiles([
+    'injectHead.coffee'
+  ], 'server')
 
-  api.imply('percolatestudio:segment.io');
+  api.addFiles([
+    'usercycle.coffee',
+  ], 'client');
+
 });
