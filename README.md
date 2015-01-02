@@ -1,4 +1,4 @@
-meteor-usercycle
+meteor-events
 ==============
 
 Push events automatically to Segment.com from your Meteor app.
@@ -8,7 +8,7 @@ effortlessly push events to your Segment account.
 
 ## Installation
 
-`meteor add usercycle:usercycle`
+`meteor add usercycle:events`
 
 ## Usage
 
