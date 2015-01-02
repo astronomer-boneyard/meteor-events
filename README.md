@@ -34,6 +34,15 @@ Add a "public.usercycle" node to your [Meteor.settings](http://docs.meteor.com/#
 }
 ```
 
+## Additional events
+
+You can log additional events on the client, for example:
+
+```
+analytics.identify Meteor.userId()
+analytics.track "Signed In"
+```
+
 ## Sample Scripts
 
 This package can be used to support your [USERcycle](https://usercycle.com) account,
