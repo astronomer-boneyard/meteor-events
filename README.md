@@ -72,7 +72,7 @@ mongoexport --port 10059 --host candidate.15.mongolayer.com \
 keen events:add -c "Signed Up" -f users.csv --csv -p myPublicKey -w myWriteKey
 ```
 
-### 3. Export retention event from Mongo
+### 3. Export retention events from Mongo
 
 There is probably one collection that is most important for your users to create on a regular basis, in order to be considered an active user. Hopefully you've been recording a userId and createdAt date for the collection, otherwise you're out of luck on this step.
 
@@ -84,7 +84,7 @@ mongoexport --port 10059 --host candidate.15.mongolayer.com \
 --csv --fields userId,createdAt --out tweets.csv
 ```
 
-### 4. Import retention event into Keen IO
+### 4. Import retention events into Keen IO
 
 * Edit the CSV you created in step one — change column names:
   * `userId` to "user.userId"
