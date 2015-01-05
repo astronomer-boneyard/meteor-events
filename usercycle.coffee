@@ -40,20 +40,34 @@ Meteor.startup ->
 
   # Wrap createUser so we can modify the callback
   createUser = Accounts.createUser
-  Accounts.createUser = ->
+  Accounts.createUser = (options, callback)->
     args = _.values arguments
-    callback = args[args.length-1]
+    if Meteor.isClient
+      callback = args[args.length-1]
 
-    if _.isFunction callback
-      args[args.length-1] = (error) ->
-        trackSignup error
-        callback error
-    else
-      args.push (error) ->
-        trackSignup error
+      if _.isFunction callback
+        args[args.length-1] = (error) ->
+          trackSignup error
+          callback error
+      else
+        args.push (error) ->
+          trackSignup error
 
-    createUser.apply @, args
+    userId = createUser.apply @, args
 
+    if Meteor.isServer
+      eventName = settings?.signup?.name or "Signed Up"
+      g.analytics.track
+        userId: userId
+        event: eventName
+        properties:
+          user:
+            userId: userId
+            email: options?.email
+            createdAt: new Date()
+      log "Tracked #{eventName}"
+
+    userId
 
   # Itegration with IR
   Router.onRun ->
