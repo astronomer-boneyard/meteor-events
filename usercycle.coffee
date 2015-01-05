@@ -2,8 +2,10 @@ Meteor.startup ->
 
   settings = Meteor.settings?.public?.usercycle
 
+  g = if Meteor.isServer then global else window
+
   if settings.segment
-    window.analytics.load settings.segment.writeKey
+    g.analytics.load settings.segment.writeKey
   else
     throw new Error "Your Segment write key is not defined. Did you forget the --settings flag?"
 
@@ -14,11 +16,12 @@ Meteor.startup ->
 
 
   # Go ahead and identify if a user is already logged in or logs in
-  Tracker.autorun ->
-    userId = Meteor.userId()
-    if userId
-      window.analytics.identify userId
-      log "Identified #{userId}"
+  if Meteor.isClient
+    Tracker.autorun ->
+      userId = Meteor.userId()
+      if userId
+        g.analytics.identify userId
+        log "Identified #{userId}"
 
 
   # Send Signed Up event to segment if a user was created
@@ -26,13 +29,13 @@ Meteor.startup ->
     unless error
       user = Meteor.user()
 
-      window.analytics.identify user._id,
+      g.analytics.identify user._id,
         email: user.emails?[0]?.address
         createdAt: new Date()
       log "Identified #{user._id}"
 
       eventName = settings?.signup?.name or "Signed Up"
-      window.analytics.track eventName
+      g.analytics.track eventName
       log "Tracked #{eventName}"
 
   # Wrap createUser so we can modify the callback
@@ -58,6 +61,6 @@ Meteor.startup ->
     retentionRoutes = _.compact _.flatten [settings?.retention?.routes]
     if _.contains retentionRoutes, name
       eventName = settings?.retention?.name or name
-      window.analytics.track eventName
+      g.analytics.track eventName
       log "Tracked #{eventName}"
     @next()
