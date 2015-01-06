@@ -1,7 +1,7 @@
 Package.describe({
   name: 'usercycle:events',
   summary: 'Usercycle Events',
-  version: '0.0.3'
+  version: '0.0.4'
 });
 
 Package.onUse(function(api) {

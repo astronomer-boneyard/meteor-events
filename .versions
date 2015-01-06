@@ -27,12 +27,12 @@ jquery@1.0.2
 json@1.0.2
 logging@1.0.6
 meteor@1.1.4
-meteorhacks:inject-initial@1.0.2
 minifiers@1.1.3
 minimongo@1.0.6
 mongo@1.0.11
 observe-sequence@1.0.4
 ordered-dict@1.0.2
+percolatestudio:segment.io@1.1.0_1
 random@1.0.2
 reactive-dict@1.0.5
 reactive-var@1.0.4
@@ -44,6 +44,6 @@ templating@1.0.10
 tracker@1.0.4
 ui@1.0.5
 underscore@1.0.2
-usercycle:events@0.0.2
+usercycle:events@0.0.4
 webapp@1.1.5
 webapp-hashing@1.0.2
