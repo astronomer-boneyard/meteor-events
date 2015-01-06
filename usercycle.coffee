@@ -63,7 +63,7 @@ Meteor.startup ->
 
   else if Meteor.isServer
     Accounts.createUser = ->
-      userId = createUser arguments
+      userId = createUser.apply @, _.values(arguments)
       log "Tracking #{signupEvent()} for #{userId}"
       g.analytics.track
         userId: userId
