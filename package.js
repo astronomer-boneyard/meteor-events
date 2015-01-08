@@ -1,7 +1,8 @@
 Package.describe({
   name: 'usercycle:events',
   summary: 'Usercycle Events',
-  version: '0.0.4'
+  version: '0.0.4',
+  git: "https://github.com/usercycle/meteor-events"
 });
 
 Package.onUse(function(api) {
