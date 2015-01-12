@@ -62,7 +62,7 @@ mongoexport --port 10059 --host candidate.15.mongolayer.com \
 
 ### 2. Import "Signed Up" events into Keen IO
 
-* Install the keen-cli npm package
+* Install the [keen-cli gem](https://github.com/keen/keen-cli)
 * Edit the CSV you created in step one — change column names:
   * `_id` to "user.userId"
   * `created_at` to "keen.timestamp"
