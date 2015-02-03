@@ -1,7 +1,7 @@
 Package.describe({
   name: 'usercycle:events',
   summary: 'Usercycle Events',
-  version: '0.0.4',
+  version: '0.0.5',
   git: "https://github.com/usercycle/meteor-events"
 });
 
