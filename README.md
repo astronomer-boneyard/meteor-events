@@ -1,6 +1,10 @@
 meteor-events
 ==============
 
+**Since we're building [Astronomer](http://astronomer.io/) we're no longer supporting this package.**
+
+---
+
 Push events automatically to Segment.com from your Meteor app.
 
 This package will observe your signups and IronRouter route hits, and
