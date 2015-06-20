@@ -85,3 +85,4 @@ Meteor.startup ->
       log "Tracking #{eventName} for #{Meteor.userId()}"
       g.analytics.track eventName
     @next()
+    ,{where : 'client'}
