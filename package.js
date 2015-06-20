@@ -17,7 +17,7 @@ Package.onUse(function(api) {
     ], ['client', 'server']);
 
   api.addFiles([
-    'usercycle.coffee',
+    'init.coffee',
   ], ['client', 'server']);
 
   api.imply('percolatestudio:segment.io');
